@@ -1,0 +1,70 @@
+body {
+  font-size: 18px;
+  margin: auto;
+  max-width: 1000px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+h1 {
+  font-size: 4em;
+  text-align: center;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+#kitten-thumbs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.figure-thumb {
+  margin: 10px;
+  width: 120px;
+}
+
+.kitten-thumb {
+  width: inherit;
+}
+
+.caption-thumb {
+  text-align: center;
+}
+
+.caption-full {
+  font-size: 3em;
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.figure-full {
+  margin: 40px;
+}
+
+.counter-div {
+  align-items: baseline;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.counter {
+  font-size: 1.75em;
+  margin: 10px;
+  padding: 0;
+}
+
+#count {
+  font-size: 1.5em;
+}
