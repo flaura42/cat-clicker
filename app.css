@@ -47,6 +47,10 @@ img:hover {
   font-weight: bold;
 }
 
+.hidden {
+  display: none;
+}
+
 .figure-full {
   margin: 40px;
 }
@@ -65,6 +69,6 @@ img:hover {
   padding: 0;
 }
 
-#count {
+#kitten-count {
   font-size: 1.5em;
 }

@@ -34,10 +34,14 @@ const kittenList = {
   ]
 }
 
-window.addEventListener('load', () => { loadKittens(); })
+window.addEventListener('load', () => {
+  kittenList.currentKitten = kittenList.kittens[0];
+  loadKittens();
+})
 
 const loadKittens = () => {
   const thumbs = document.getElementById('kitten-thumbs');
+  thumbs.innerHTML = '';
   kittenList.kittens.forEach(kitten => {
     const figure = document.createElement('figure');
     figure.className = 'figure-thumb';
@@ -58,7 +62,6 @@ const loadKittens = () => {
 
     thumbs.append(figure);
   });
-  kittenList.currentKitten = kittenList.kittens[0];
   addKitten();
 }
 
@@ -71,13 +74,52 @@ const addKitten = () => {
   img.src = kitten.src;
   img.addEventListener('click', updateCount);
 
-  const count = document.getElementById('count');
+  const count = document.getElementById('kitten-count');
   count.innerText = kitten.count;
 }
 
 const updateCount = () => {
-  kitten = kittenList.currentKitten;
+  const kitten = kittenList.currentKitten;
   kittenList.currentKitten.count++;
-  const kCount = document.getElementById('count');
+  const kCount = document.getElementById('kitten-count');
   kCount.innerText = kittenList.currentKitten.count;
+}
+
+const adminButton = document.getElementById('admin-button');
+adminButton.addEventListener('click', () => { displayAdmin() });
+
+const displayAdmin = () => {
+  const name = document.getElementById('name');
+  const src = document.getElementById('src');
+  const count = document.getElementById('count');
+  const kitten = kittenList.currentKitten;
+  console.log(kitten.name);
+  name.value = kitten.name;
+  src.value = kitten.src;
+  count.value = kitten.count;
+  const admin = document.getElementById('admin');
+  admin.classList.remove('hidden');
+}
+
+const cancelButton = document.getElementById('admin-cancel');
+cancelButton.addEventListener('click', () => {
+  const admin = document.getElementById('admin');
+  admin.classList.add('hidden');
+});
+
+const updateButton = document.getElementById('admin-update');
+updateButton.addEventListener('click', () => { updateKitten() });
+
+const updateKitten = () => {
+  const name = document.getElementById('name').value;
+  const src = document.getElementById('src').value;
+  const count = document.getElementById('count').value;
+  const kitten = kittenList.currentKitten;
+  kitten.name = name;
+  kitten.src = src;
+  kitten.count = count;
+  addKitten();
+  loadKittens();
+  const admin = document.getElementById('admin');
+  admin.classList.add('hidden');
 }
