@@ -36,13 +36,11 @@ window.addEventListener('load', () => { loadKittens(); })
 const thumbs = document.getElementById('kitten-thumbs');
 
 const loadKittens = () => {
-  let i = 1;
   kittens.forEach(kitten => {
     const figure = document.createElement('figure');
     figure.className = 'figure-thumb';
 
     const img = document.createElement('img');
-    img.id = `t${i}`
     img.className = 'kitten-thumb';
     img.src = kitten.src;
     figure.append(img);
@@ -53,8 +51,8 @@ const loadKittens = () => {
     figure.append(caption);
 
     thumbs.append(figure);
-    i++
   })
+    addKitten(kittens[0]);
 }
 
 thumbs.addEventListener('click', (e) => {
@@ -64,36 +62,15 @@ thumbs.addEventListener('click', (e) => {
 })
 
 const addKitten = (kitten) => {
-  const big = document.getElementById('kitten-big');
-  big.innerHTML = '';
-  const figure = document.createElement('figure');
-  figure.className = 'figure-full';
+  const caption = document.getElementById('caption');
+  caption.innerHTML = kitten.name;
 
-  const caption = document.createElement('figcaption');
-  caption.className = 'caption-full bold';
-  caption.innerText = kitten.name;
-  figure.append(caption);
-
-  const img = document.createElement('img');
+  const img = document.getElementById('kitten-img');
   img.addEventListener('click', () => { updateCount(kitten); })
-  img.className = 'kitten-full';
   img.src = kitten.src;
-  figure.append(img);
 
-  const counter = document.createElement('div');
-  counter.className = 'counter-div';
-  const p = document.createElement('p');
-  p.className = 'bold counter';
-  p.innerText = 'Number of Clicks:';
-  counter.append(p);
-
-  const count = document.createElement('p');
-  count.id = 'count';
+  const count = document.getElementById('count');
   count.innerText = kitten.count;
-  counter.append(count);
-
-  figure.append(counter);
-  big.append(figure);
 }
 
 const updateCount = (kitten) => {
