@@ -1,14 +1,18 @@
+// Adding this comment to test commit
+
 const kittenList = {
   currentKitten: null,
   kittens: [
     {
       name: 'Chloe',
       src: './kittens/kitten1.jpg',
+      imgAttribution: 'my photo',
       count: 0
     },
     {
       name: 'Scaredy',
       src: './kittens/kitten2.jpg',
+      imgAttribution: 'https://unsplash.com/@tim_front?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText',
       count: 0
     },
     {
@@ -19,16 +23,19 @@ const kittenList = {
     {
       name: 'Fluffy',
       src: './kittens/kitten4.jpg',
+      imgAttribution: 'https://img.particlenews.com/img/id/40IDHl_0P5HiRZ600?type=thumbnail_1024x768',
       count: 0
     },
     {
       name: 'Tiger',
       src: './kittens/kitten5.jpg',
+      imgAttribution: 'https://chuckanddons.com/media/wysiwyg/cat_blog.JPG',
       count: 0
     },
     {
       name: 'Angel',
       src: './kittens/kitten6.jpg',
+      imgAttribution: 'https://www.facebook.com/104194917967106/photos/a.104211421298789/104211334632131/?type=3&theater',
       count: 0
     }
   ]
